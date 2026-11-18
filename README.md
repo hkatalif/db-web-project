@@ -41,7 +41,7 @@ http://localhost:3000/files/<UUID>
 - Everything lives in Git: `git add`, `git commit`, `git push` when you leave; `git pull` when you arrive.
 - Changed the database? Put the change in a `.sql` file in `db/schema`.
 - On each computer, run `npm run schema` `npm run data` after pulling to get the latest schema and sample data.
-> **Note** `.env` is different for each computer and is not committed to git (but yeah, it needs to existon each computer you use)
+> **Note** `.env` is different for each computer and is not committed to git (but yeah, it needs to exist on each computer you use)
 - `npm run setup` is only needed once per computer.
 
 ## What's where

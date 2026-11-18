@@ -16,7 +16,6 @@ rem Use a toolchain.zip dropped next to this file (USB / network share), else do
 set "ZIP=%~dp0toolchain.zip"
 if not exist "%ZIP%" (
   echo Downloading toolchain...
-  set "ZIP=%TEMP%\toolchain.zip"
   powershell -NoProfile -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest '%TOOLCHAIN_URL%' -OutFile '!ZIP!'"
   if errorlevel 1 (
     echo.
@@ -36,7 +35,7 @@ if defined TOOLCHAIN_SHA256 (
 )
 
 echo Unpacking...
-if not exist "..\.tools" mkdir "..\tools"
+if not exist "..\.tools" mkdir "..\.tools"
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Expand-Archive -LiteralPath '!ZIP!' -DestinationPath '..\.tools' -Force"
 if not exist "..\.tools\dab-tool\dab.cmd" (
   echo Unpack failed: ..\.tools\dab-tool\dab.cmd not found.
